@@ -19,10 +19,10 @@ export const isMobileOrTablet = () => {
       navigator.platform === "iPhone" ||
       navigator.platform === "iPod"
     ) {
-      // console.log("This is an iOS device. navigator.platform");
+      console.log("This is an iOS device. navigator.platform");
       setIsMobileOrTablet(true);
     } else {
-      // console.log("This is not an iOS device! navigator.platform");
+      console.log("This is not an iOS device! navigator.platform");
       setIsMobileOrTablet(false);
     }
   }, []);
@@ -116,9 +116,9 @@ export const isMobileBrowser = () => {
     /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od|ad|ad\ mini|ad\ pro)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i;
   const isMobile = navigator.userAgentData.mobile;
 
-  // console.log("isMobile: ", isMobile);
-  // console.log(" window.navigator.userAgent: ", window.navigator.userAgent);
-  // console.log("   navigator.userAgent: ", navigator.userAgent);
+  console.log("isMobile: ", isMobile);
+  console.log(" window.navigator.userAgent: ", window.navigator.userAgent);
+  console.log("   navigator.userAgent: ", navigator.userAgent);
 
   return mobileOrTabletPattern.test(userAgent);
 };
@@ -347,72 +347,3 @@ export const isMobileOrTablet2 = () => {
   }, []);
   return isMobileOrTablet;
 };
-
-// full screen toggle --> full screen doesn't work on ios/android browsers
-// export const isMobileOrTablet = () => {
-//   const [isMobileOrTablet, setIsMobileOrTablet] = useState(false);
-
-//   useEffect(() => {
-//     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-
-//     // Check if the user agent is for iPhone, iPad, or other mobile devices
-//     if (/iPhone|iPod|iPad|Android|webOS|BlackBerry|Windows Phone/i.test(userAgent)) {
-//       setIsMobileOrTablet(true);
-//     }
-//   }, []);
-
-//   return isMobileOrTablet;
-// };
-
-// export const isMobileOrTablet3 = () => {
-//   const [isMobileOrTablet, setIsMobileOrTablet] = useState(false);
-
-//   useEffect(() => {
-//     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-
-//     // Check if the user agent is for iPhone, iPod, iPad, Android, webOS, BlackBerry, or Windows Phone
-//     const isMobileDevice = userAgent.includes("iPhone") ||
-//                            userAgent.includes("iPod") ||
-//                            userAgent.includes("iPad") ||
-//                            userAgent.includes("Android") ||
-//                           //  userAgent.includes("webOS") ||
-//                            userAgent.includes("BlackBerry") ||
-//                            userAgent.includes("Windows Phone");
-
-//     setIsMobileOrTablet(false);
-//     if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
-//       console.log("This is an iOS device. /iPad|iPhone|iPod/");
-//       setIsMobileOrTablet(true);
-//   } else {
-//     setIsMobileOrTablet(false);
-//       console.log("This is not an iOS device! /iPad|iPhone|iPod/");
-//   }
-
-//   }, []);
-
-//   return isMobileOrTablet;
-// };
-
-// const u = navigator.userAgent
-// const mobileOrTablet =  !!u.match(/Android/i) || !!u.match(/iPhone/i) || !!u.match(/iPad/i)
-// console.log(' \n mobileOrTablet: ', mobileOrTablet)
-
-//   if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
-//     console.log("This is an iOS device. /iPad|iPhone|iPod/");
-
-// } else {
-
-//     console.log("This is not an iOS device! /iPad|iPhone|iPod/");
-// }
-
-//   if (navigator.platform === 'iPad' || navigator.platform === 'iPhone' || navigator.platform === 'iPod') {
-//     console.log("This is an iOS device. navigator.platform");
-// } else {
-//     console.log("This is not an iOS device! navigator.platform");
-// }
-
-//   if (('ontouchstart' in window) || (navigator.MaxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0)) {
-//     console.log("This is an iOS device. ontouchstart");
-// } else {
-//     console.log("This is not an iOS device! ontouchstart");
-// }
