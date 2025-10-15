@@ -10,9 +10,9 @@ function App() {
   return (
 <div>
       <nav style={{ marginBottom: "1rem" }}>
-        <Link to="/">Local State</Link> |{" "}
-        <Link to="/homepage">Context</Link> |{" "}
-        <Link to="/redux">Redux</Link>
+        <Link to="/screen-rez-load/">MediaQuery with Navigator</Link> |{" "}
+        <Link to="/screen-rez-load/homepage">Context</Link> |{" "}
+        <Link to="screen-rez-load/redux">Redux</Link>
       </nav>
 
       <Routes>
@@ -20,7 +20,7 @@ function App() {
 
           {/* Apply ThemeProvider only to this route */}
           <Route
-          path="/"
+          path="/screen-rez-load"
           element={
             <ThemeProvider theme={theme}>
               <CssBaseline />
