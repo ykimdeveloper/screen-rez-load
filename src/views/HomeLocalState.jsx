@@ -12,9 +12,12 @@ import MyMap from '../components/map'
 
 export default function HomeLocalState() {
   const [count, setCount] = useState(0);
-//   const  audioData ="/classical-strings-violin-music.mp3"
 
-  const url = `${import.meta.env.BASE_URL}classical-strings-violin-music.mp3`;
+//   const url = `${import.meta.env.BASE_URL}classical-strings-violin-music.mp3`;
+
+  const url = `${import.meta.env.BASE_URL}classical-strings-violin-music.mp3`
+
+//   const audioUrl = "/screen-rez-load/classical-strings-violin-music.mp3"
 
   const isPopularBrowser = usePopularBrowser()
   const isAndroidTablet = useAndroidMobileOrTablet()
@@ -28,7 +31,7 @@ export default function HomeLocalState() {
 
       <div>
         <a href="https://vite.dev" target="_blank">
-          <img  src="/vite.svg"   className="logo" alt="Vite logo" />
+          <img  src="/screen-rez-load/vite.svg"   className="logo" alt="Vite logo" />
         </a>
         <a href="https://react.dev" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />
