@@ -71,7 +71,8 @@ const AudioDetails = (props) => {
     const {
         isPopularBrowser,
         isAndroidTablet,
-        isIOSMobileOrTablet
+        isIOSMobileOrTablet,
+        audioData
       } = props;
 
     const theme = useTheme();
@@ -177,7 +178,7 @@ const AudioDetails = (props) => {
       
               <Box sx={{ p: 5, pt: 0, textAlign: "center" }}>
       
-              <WaveSurferPlayer audioData={"./classical-strings-violin-music.mp3"} 
+              <WaveSurferPlayer audioData={audioData} 
                 isPopularBrowser={isPopularBrowser}
                 isAndroidTablet={isAndroidTablet}
                 isIOSMobileOrTablet={isIOSMobileOrTablet}
