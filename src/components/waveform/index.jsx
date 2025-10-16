@@ -164,7 +164,7 @@ export default function Waveform({ url }) {
           <></>
         )}
       </div>
-      <br></br>
+  
       <div className="controls">
         <IconButton sx={{   color: 'orangeRed'}} onClick={handlePlayPause}>
           {!playing ? (
