@@ -12,12 +12,7 @@ import MyMap from '../components/map'
 
 export default function HomeLocalState() {
   const [count, setCount] = useState(0);
-
-//   const url = `${import.meta.env.BASE_URL}classical-strings-violin-music.mp3`;
-
   const url = `${import.meta.env.BASE_URL}classical-strings-violin-music.mp3`
-
-//   const audioUrl = "/screen-rez-load/classical-strings-violin-music.mp3"
 
   const isPopularBrowser = usePopularBrowser()
   const isAndroidTablet = useAndroidMobileOrTablet()
@@ -25,9 +20,9 @@ export default function HomeLocalState() {
 
   return (
     <div>
-      <h2>Home (Local State)</h2>
+      <h2>MediaQuery with Navigator</h2>
 
-      <button onClick={() => setCount(count + 1)}>Increment</button>
+      {/* <button onClick={() => setCount(count + 1)}>Increment</button> */}
 
       <div>
         <a href="https://vite.dev" target="_blank">
@@ -39,9 +34,9 @@ export default function HomeLocalState() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        {/* <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
-        </button>
+        </button> */}
 
 
 
