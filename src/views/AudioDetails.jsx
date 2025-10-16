@@ -9,15 +9,16 @@ import {
 import Waveform from "../components/waveform";
 
 
-function WaveSurferPlayer({ audioData, 
+function WaveSurferPlayer({ 
+    audioData, 
     isPopularBrowser,
     isAndroidTablet,
-    isIOSMobileOrTablet }) {
+    isIOSMobileOrTablet 
+}) {
 
     const theme = useTheme();
-
- 
     const shouldUseWaveform = (isPopularBrowser.toString()==='true' || isAndroidTablet.toString()==='true') && isIOSMobileOrTablet.toString()==='false';
+
     return (
       <div>
         <br></br>
@@ -60,13 +61,6 @@ function WaveSurferPlayer({ audioData,
 
 
 
-
-
-
-
-
-
-
 const AudioDetails = (props) => {
     const {
         isPopularBrowser,
@@ -75,132 +69,40 @@ const AudioDetails = (props) => {
         audioData
       } = props;
 
-    const theme = useTheme();
-    const matches = useMediaQuery(theme.breakpoints.up("xl")); // 'lg' corresponds to 1024px and above
- 
-
     return (
         <>
-    <Box
-        sx={{
-  
-          backgroundColor: "background.paper",
-          borderBottom: (theme) => `1px solid ${theme.palette.divider}`,
-        }}
-      >
         <Box
-          sx={{
-            display: "flex",
-            alignItems: ["flex-start", "center"],
-            justifyContent: "space-between",
-          }}
-        >
-          <Box
             sx={{
-              display: "flex",
-              overflow: "hidden",
-              alignItems: "center",
-              whiteSpace: "nowrap",
-              textOverflow: "ellipsis",
-            }}
-          >
-   
-          </Box>
-       
-        </Box>
-      </Box>
-      <Box
-        sx={{
-          backgroundColor: "background.paper",
-          p: (theme) => theme.spacing(3, 2, 3, 3),
-        }}
-      >
-        <Box
-          sx={{
+            height: "calc(100% - 6.75rem)",
+            backgroundColor: "action.hover",
             display: "flex",
-            justifyContent: "space-between",
+            flexDirection: "column",
             alignItems: "center",
-          }}
-        >
-         
-    
-        </Box>
-      </Box>
-      
-      <Box
-        sx={{
-          height: "calc(100% - 6.75rem)",
-          backgroundColor: "action.hover",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-  
-          <Box
-            sx={{
-              width: "100%",
-              display: "flex",
-              alignItems: "center",
-              flexDirection: "column",
-              justifyContent: "center",
+            justifyContent: "center",
             }}
-          >
-            <Box
-              sx={{
-                width: "100%",
-                borderRadius: 1,
-                overflow: "visible",
-                position: "relative",
-                backgroundColor: "background.paper",
-                // eslint-disable-next-line no-constant-condition
-                boxShadow: "bordered" === "bordered" ? 0 : 6,
-                border: theme => `1px solid ${theme.palette.divider}`
-              }}
-            >
-              <Box
+        >
+  
+                <Box
                 sx={{
-                  marginLeft: "1.3rem",
-                  maxWidth: "100%",
-                  height: "auto",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  "& img": {
-                    width: matches ? "750px" : "100%", // 750px for large screens, 100% for smaller screens
-                    height: "auto",
-                  },
+                    width: "100%",
+                    borderRadius: 1,
+                    overflow: "visible",
+                    position: "relative",
+                    backgroundColor: "background.paper",
+                    // eslint-disable-next-line no-constant-condition
+                    boxShadow: "bordered" === "bordered" ? 0 : 6,
+                    border: theme => `1px solid ${theme.palette.divider}`
                 }}
-              >
-             
-              </Box>
-      
-              <Box sx={{ p: 5, pt: 0, textAlign: "center" }}>
-      
-              <WaveSurferPlayer audioData={audioData} 
-                isPopularBrowser={isPopularBrowser}
-                isAndroidTablet={isAndroidTablet}
-                isIOSMobileOrTablet={isIOSMobileOrTablet}
-              />
-              </Box>
-              <br></br>
-              <Box
-                sx={{
-                  mb: "1rem",
-                  p: 8,
-                  pt: 0,
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-            
-            
-              </Box>
-            </Box>
+                >
+          
+                <Box >
+                    <WaveSurferPlayer audioData={audioData} 
+                        isPopularBrowser={isPopularBrowser}
+                        isAndroidTablet={isAndroidTablet}
+                        isIOSMobileOrTablet={isIOSMobileOrTablet}
+                    />
+                </Box>
           </Box>
- 
       </Box>
     </>
     )
