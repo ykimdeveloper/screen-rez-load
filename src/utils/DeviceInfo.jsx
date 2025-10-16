@@ -41,8 +41,7 @@ export const usePopularBrowser = () => {
 
     // Check if the user is using a popular browser
     const isChrome = userAgent.includes("Chrome");
-    const isSafari =
-      userAgent.includes("Safari") && !userAgent.includes("Chrome");
+    const isSafari = userAgent.includes("Safari") && !userAgent.includes("Chrome");
     const isFirefox = userAgent.includes("Firefox");
     const isOpera = userAgent.includes("OPR") || userAgent.includes("Opera");
     const isEdge = userAgent.includes("Edg") || userAgent.includes("Edge");
@@ -55,6 +54,33 @@ export const usePopularBrowser = () => {
 
   return isPopularBrowser;
 };
+
+
+export const useIOSMobileOrTablet = () => {
+    const [isMobileOrTablet, setIsMobileOrTablet] = useState(false);
+  
+    useEffect(() => {
+      const userAgent = navigator.userAgent || window.opera;
+      const isIos = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+      setIsMobileOrTablet(isIos);
+    }, []);
+  
+    return isMobileOrTablet;
+  };
+  
+  
+  export const useAndroidMobileOrTablet = () => {
+    const [isMobileOrTablet, setIsMobileOrTablet] = useState(false);
+  
+    useEffect(() => {
+      const userAgent = navigator.userAgent || window.opera;
+      const isAndroid = /android/i.test(userAgent);
+      setIsMobileOrTablet(isAndroid);
+    }, []);
+  
+    return isMobileOrTablet;
+  };
+  
 
 export const useMobileOrTablet = () => {
   const [isMobileOrTablet, setIsMobileOrTablet] = useState(false);
@@ -69,31 +95,6 @@ export const useMobileOrTablet = () => {
   return isMobileOrTablet;
 };
 
-
-export const useIOSMobileOrTablet = () => {
-  const [isMobileOrTablet, setIsMobileOrTablet] = useState(false);
-
-  useEffect(() => {
-    const userAgent = navigator.userAgent || window.opera;
-    const isIos = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
-    setIsMobileOrTablet(isIos);
-  }, []);
-
-  return isMobileOrTablet;
-};
-
-
-export const useAndroidMobileOrTablet = () => {
-  const [isMobileOrTablet, setIsMobileOrTablet] = useState(false);
-
-  useEffect(() => {
-    const userAgent = navigator.userAgent || window.opera;
-    const isAndroid = /android/i.test(userAgent);
-    setIsMobileOrTablet(isAndroid);
-  }, []);
-
-  return isMobileOrTablet;
-};
 
 export const DeviceInfo = () => {
   // if (typeof window === `undefined` || typeof navigator === `undefined`) return false;
