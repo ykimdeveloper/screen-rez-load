@@ -11,8 +11,9 @@ function App() {
 <div>
       <nav style={{ marginBottom: "1rem" }}>
         <Link to="/screen-rez-load/">MediaQuery with Navigator</Link> |{" "}
-        <Link to="/screen-rez-load/homepage">Context</Link> |{" "}
-        <Link to="screen-rez-load/redux">Redux</Link>
+        <Link to="/screen-rez-load/platform">Platform.js</Link> |{" "}
+        <Link to="screen-rez-load/browser">Browser.js</Link> |{" "}
+        <Link to="screen-rez-load/browser">react-window</Link>
       </nav>
 
       <Routes>
