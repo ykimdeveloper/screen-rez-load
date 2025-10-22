@@ -3,17 +3,11 @@ import { useEffect, useState } from "react";
 //  ----------------------------------------------------------------------------------------------- //
 // works
 // full screen toggle --> full screen doesn't work on ios/android browsers and audio player
+// fails on newer iphones and ios devices after OS 13
 export const isMobileOrTablet = () => {
   const [isMobileOrTablet, setIsMobileOrTablet] = useState(false);
 
   useEffect(() => {
-    const userAgent = navigator.userAgent || window.opera;
-    const isIos = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
-    const isAndroid = /android/i.test(userAgent);
-
-    // console.log(" isIos: ", isIos);
-    // console.log(" isAndroid: ", isAndroid);
-
     if (
       navigator.platform === "iPad" ||
       navigator.platform === "iPhone" ||
@@ -30,6 +24,20 @@ export const isMobileOrTablet = () => {
   return isMobileOrTablet;
 };
 
+// works on newer devices
+// windows agent that spoof
+export const useIOSMobileOrTablet = () => {
+  const [isMobileOrTablet, setIsMobileOrTablet] = useState(false);
+
+  useEffect(() => {
+    const userAgent = navigator.userAgent || window.opera;
+    const isIos = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+    setIsMobileOrTablet(isIos);
+  }, []);
+
+  return isMobileOrTablet;
+};
+
 //  works
 // audio player, login showing plotpointers.com,
 // remove membership page button to purchase, link only to browsers, for even phone browsers--> so users don't make app purchases
@@ -41,7 +49,8 @@ export const usePopularBrowser = () => {
 
     // Check if the user is using a popular browser
     const isChrome = userAgent.includes("Chrome");
-    const isSafari = userAgent.includes("Safari") && !userAgent.includes("Chrome");
+    const isSafari =
+      userAgent.includes("Safari") && !userAgent.includes("Chrome");
     const isFirefox = userAgent.includes("Firefox");
     const isOpera = userAgent.includes("OPR") || userAgent.includes("Opera");
     const isEdge = userAgent.includes("Edg") || userAgent.includes("Edge");
@@ -55,32 +64,17 @@ export const usePopularBrowser = () => {
   return isPopularBrowser;
 };
 
+export const useAndroidMobileOrTablet = () => {
+  const [isMobileOrTablet, setIsMobileOrTablet] = useState(false);
 
-export const useIOSMobileOrTablet = () => {
-    const [isMobileOrTablet, setIsMobileOrTablet] = useState(false);
-  
-    useEffect(() => {
-      const userAgent = navigator.userAgent || window.opera;
-      const isIos = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
-      setIsMobileOrTablet(isIos);
-    }, []);
-  
-    return isMobileOrTablet;
-  };
-  
-  
-  export const useAndroidMobileOrTablet = () => {
-    const [isMobileOrTablet, setIsMobileOrTablet] = useState(false);
-  
-    useEffect(() => {
-      const userAgent = navigator.userAgent || window.opera;
-      const isAndroid = /android/i.test(userAgent);
-      setIsMobileOrTablet(isAndroid);
-    }, []);
-  
-    return isMobileOrTablet;
-  };
-  
+  useEffect(() => {
+    const userAgent = navigator.userAgent || window.opera;
+    const isAndroid = /android/i.test(userAgent);
+    setIsMobileOrTablet(isAndroid);
+  }, []);
+
+  return isMobileOrTablet;
+};
 
 export const useMobileOrTablet = () => {
   const [isMobileOrTablet, setIsMobileOrTablet] = useState(false);
@@ -95,7 +89,6 @@ export const useMobileOrTablet = () => {
   return isMobileOrTablet;
 };
 
-
 export const DeviceInfo = () => {
   // if (typeof window === `undefined` || typeof navigator === `undefined`) return false;
 
@@ -105,8 +98,6 @@ export const DeviceInfo = () => {
 
   return isIos || isAndroid;
 };
-
-
 
 //  ----------------------------------------------------------------------------------------------- //
 

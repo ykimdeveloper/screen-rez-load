@@ -1,31 +1,26 @@
-
 import { Routes, Route, Link } from "react-router-dom";
-import HomeLocalState from "./views/HomeLocalState";
-import './App.css'
+
+import "./App.css";
 import { ThemeProvider, createTheme, CssBaseline } from "@mui/material";
+import Home from "./views/Home";
+import MuiUserAgent from "./views/MuiUserAgent"
+import ScreenRezNav from "./components/nav"
 
 function App() {
   const theme = createTheme(); // you can customize later
-
   return (
-<div>
-      <nav style={{ marginBottom: "1rem" }}>
-        <Link to="/screen-rez-load/">MediaQuery with Navigator</Link> |{" "}
-        <Link to="/screen-rez-load/platform">Platform.js</Link> |{" "}
-        <Link to="screen-rez-load/browser">Browser.js</Link> |{" "}
-        <Link to="screen-rez-load/browser">react-window</Link>
-      </nav>
+    <div>
+     <ScreenRezNav/>
 
       <Routes>
-        {/* <Route path="/" element={<HomeLocalState />} /> */}
-
-          {/* Apply ThemeProvider only to this route */}
-          <Route
+ 
+        <Route
           path="/screen-rez-load"
           element={
             <ThemeProvider theme={theme}>
               <CssBaseline />
-              <HomeLocalState />
+              <Home />
+              <MuiUserAgent/>
             </ThemeProvider>
           }
         />
@@ -35,7 +30,7 @@ function App() {
         <Route path="/redux" element={<HomeWithRedux />} /> */}
       </Routes>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
