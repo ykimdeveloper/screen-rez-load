@@ -33,7 +33,6 @@ export default function PlatformView() {
     },
   };
 
- 
 
   const current = isPhone
     ? deviceStyles.phone
@@ -42,11 +41,8 @@ export default function PlatformView() {
     : deviceStyles.desktop;
 
 
-
-
   console.log('\n\n device ', device)
   console.log('\n\n browser ', browser)
-  
 
   return (
     <div>
@@ -68,17 +64,11 @@ export default function PlatformView() {
       >
         browser: {browser} - device: {device}
       </h4>
-      
-
       <PlatformDemo />
-
-
   
       <div style={{ marginLeft: "150px"  }}>
       <div style={{ padding: ".5rem" }}>
       <h2 style={{ textAlign: "center" }}>📱 Responsive Map Demo </h2>
-
-
 
         {browser === "Opera" ? (
         <BrowserWarning browser={browser} device={device} />
@@ -109,9 +99,7 @@ export default function PlatformView() {
         </div>
       </DivWithSize>
     </div>
-
     </div>
-
     </div>
   );
 }
