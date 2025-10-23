@@ -10,14 +10,8 @@ export default function PhoneResolution() {
       executionCount={1}
       markdown={`### Helper Function to Check if a User is on a Browser or IOS device
         
-        so WebAssembly render on flutter is PWA and it's good to check if the user is using 
+        so WebAssembly render on Flutter is PWA and it's good to check if the user is using 
         a browser and not a PWA. 
-
-        IOS behaves differently than on Android when using wavesurver
-
-        Also Wavesurfer player can be made responsive, but you frequently need to handle window/container 
-        resize yourself and tell Wavesurfer to recalculate and redraw the waveform. Also the Wavesurfer does not render
-        on IOS devices
 
         `}
       code={`
