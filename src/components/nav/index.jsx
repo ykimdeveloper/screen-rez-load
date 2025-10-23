@@ -24,7 +24,7 @@ export default function ScreenRezNav() {
         <Link to="/screen-rez-load/">1. Mui useMediaQuery with UserAgent</Link>
         <Link to="/screen-rez-load/platform">2. Platform.js</Link>
         <Link to="/screen-rez-load/browser">3. Browser.js</Link>
-        <Link to="/screen-rez-load/react-window">4. react-window</Link>
+        {/* <Link to="/screen-rez-load/react-window">4. react-window</Link> */}
         <a href="https://react.dev" target="_blank" rel="noopener noreferrer">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
