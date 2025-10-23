@@ -42,7 +42,16 @@ export default function HomeLocalState() {
     ? deviceStyles.tablet
     : deviceStyles.desktop;
 
-   
+    // let current;
+    // if (isPhone || (isIOS && !isPopularBrowser)) {
+    //   current = deviceStyles.phone;
+    // } else if (isTablet) {
+    //   current = deviceStyles.tablet;
+    // } else {
+    //   current = deviceStyles.desktop;
+    // }
+ 
+ 
 
 
   console.log('\n\n device ', device)
@@ -73,11 +82,18 @@ export default function HomeLocalState() {
 
       <PhoneResolution />
 
+
   
       <div style={{ marginLeft: "150px"  }}>
       <div style={{ padding: ".5rem" }}>
       <h2 style={{ textAlign: "center" }}>📱 Responsive Map Demo </h2>
 
+
+      {/* <DivWithSize label={`Dynamic: ${current.label}`} debug>
+      <div style={current.style}>
+          <MyMap />
+        </div>
+      </DivWithSize> */}
 
     {browser === "Opera" ? (
       <BrowserWarning browser={browser} device={device}   />

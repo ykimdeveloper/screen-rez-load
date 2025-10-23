@@ -1,23 +1,22 @@
 import AudioAndMap from "./AudioAndMap";
-import PhoneResolution from "../demo/muiagent/phoneresolution";
+import PlatformDemo from "../demo/platform/platformdevice";
 import DivWithSize from "../components/DivWithSize_";
 import { useMediaQuery, useTheme } from "@mui/material";
 
-import {usePopularBrowser, useIOSMobileOrTablet } from "../hooks/useDeviceInfo"
+import usePlatformInfo from "../hooks/usePlatformInfo";
 
 import MyMap from '../components/map'
 import BrowserWarning from '../components/browserWarning'
 
-export default function HomeLocalState() {
+export default function PlatformView() {
   const theme = useTheme();
   const isPhone = useMediaQuery(theme.breakpoints.down("sm")); // <600px
   const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md")); // 600–900px
   const isDesktop = useMediaQuery(theme.breakpoints.up("md")); // >900px
 
+
     // Custom hooks
-    const { isIOS, device } = useIOSMobileOrTablet();
-    const { isPopularBrowser, browser } = usePopularBrowser();
-   
+    const { browser, device, isIOS, isPopular } = usePlatformInfo();
 
   const deviceStyles = {
     phone: {
@@ -42,7 +41,7 @@ export default function HomeLocalState() {
     ? deviceStyles.tablet
     : deviceStyles.desktop;
 
-   
+
 
 
   console.log('\n\n device ', device)
@@ -58,7 +57,7 @@ export default function HomeLocalState() {
           alignItems: "center",
         }}
       >
-        1. Mui useMediaQuery with UserAgent 
+        2. Platform.js 
       </h2>
       <h4
         style={{
@@ -71,7 +70,8 @@ export default function HomeLocalState() {
       </h4>
       
 
-      <PhoneResolution />
+      <PlatformDemo />
+
 
   
       <div style={{ marginLeft: "150px"  }}>
@@ -79,15 +79,16 @@ export default function HomeLocalState() {
       <h2 style={{ textAlign: "center" }}>📱 Responsive Map Demo </h2>
 
 
-    {browser === "Opera" ? (
-      <BrowserWarning browser={browser} device={device}   />
-    ) : (
-      <DivWithSize label={`Dynamic: ${current.label}`} debug>
-      <div style={current.style}>
-        <MyMap />
-      </div>
-      </DivWithSize>
-    )}
+
+        {browser === "Opera" ? (
+        <BrowserWarning browser={browser} device={device} />
+        ) : (
+        <DivWithSize label={`Dynamic: ${current.label}`} debug>
+            <div style={current.style}>
+            <MyMap />
+            </div>
+        </DivWithSize>
+        )}
 
       <DivWithSize label="Phone View" debug>
         <div style={deviceStyles.phone.style}>
