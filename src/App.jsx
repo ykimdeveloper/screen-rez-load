@@ -7,7 +7,18 @@ import MuiUserAgent from "./views/MuiUserAgent"
 import ScreenRezNav from "./components/nav"
 
 function App() {
-  const theme = createTheme(); // you can customize later
+  const theme = createTheme({
+    breakpoints: {
+      values: {
+        xs: 0,
+        sm: 600,
+        md: 900,
+        lg: 1200,
+        xl: 1536,
+      },
+    },
+  });
+  
   return (
     <div>
      <ScreenRezNav/>
