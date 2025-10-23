@@ -1,16 +1,50 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- **`navigator.userAgent`**
+  - Still usable for broad classification
+  - Inconsistent across OS/browsers and increasingly deprecated
 
-Currently, two official plugins are available:
+- **Media Queries (`window.matchMedia`)**
+  - Most reliable for layout and performance adjustments
+  - Should be the primary tool for responsive design
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Bowser (library)**
+  - Recommended when we need to know the actual browser/OS  
+    (e.g., Safari iOS vs Safari macOS)
+  - Provides high‑level flags like `isMobile`, `isDesktop`
+  - Abstracts away UA parsing
 
-## React Compiler
+- **platform.js (library)**
+  - Alternative to Bowser
+  - Less actively maintained
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+### ✅ Recommendation
+Use **media queries** for responsiveness, and **Bowser** for coarse device/browser detection when needed.  
+This hybrid approach minimizes reliance on fragile UA strings while still letting us optimize for hardware constraints.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+Navigator / User Agent
+
+•  navigator.userAgent has historically been the go‑to for device/browser detection.
+•  Problems:
+  ⁠◦  UA strings are inconsistent across browsers and OS.
+  ⁠◦  Many browsers deliberately obfuscate or “freeze” UA strings for privacy reasons.
+  
+
+Example: Chrome on iOS reports itself as “Safari” because Apple requires all iOS browsers to use WebKit.
+•  Still useful?
+  ⁠◦  Yes, but only for broad classification (mobile vs desktop, iOS vs Android).
+  ⁠◦  Should not be relied on for fine‑grained detection (e.g., exact browser version).
+
+Hybrid Strategy:
+  ⁠◦  Use UA parsing only when you need to distinguish between OS families (e.g., Safari on iOS vs Safari on macOS).
+
+
+•  Mozilla/Firefox: UA string differs slightly between Windows and macOS, but both identify as “Firefox.”
+•  Safari:
+◦  macOS Safari vs iOS Safari are harder to distinguish. UA string includes “Mobile” on iOS.
+
+
+•  Primary: Use media queries for responsive layout and performance tuning.
+•  Secondary: Use Bowser for coarse device/browser classification when you need to branch logic (e.g., disable heavy map rendering on mobile Safari).
