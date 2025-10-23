@@ -10,8 +10,7 @@ It evaluates rendering behavior using:
 
 - **Mui mediaQuery + browser userAgent** → detect device traits  
 - **Platform.js** → platform / OS detection  
-- **Browser.js** → browser identification  
-- **react-window** → efficient rendering with virtualization  
+- **Browser.js** → browser identification   
 
 This setup makes it easy to explore cross-device rendering and performance tuning in a simple, reproducible way.
 `}>
