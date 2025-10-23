@@ -82,7 +82,7 @@ export default function HomeLocalState() {
     {browser === "Opera" ? (
       <BrowserWarning browser={browser} device={device}   />
     ) : (
-      <DivWithSize label={`Dynamic: ${current.label}`} debug>
+      <DivWithSize label={`Dynamic: {current.label} — Fails on Opera Browser`} debug>
       <div style={current.style}>
         <MyMap />
       </div>
