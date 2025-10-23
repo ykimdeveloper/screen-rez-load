@@ -19,8 +19,6 @@ html.safari .myMap {
 }
 `}
       code={`
-
-
         export default function useBrowserJsInfo() {
             const [info, setInfo] = useState({
               browser: "Unknown",
@@ -50,8 +48,6 @@ html.safari .myMap {
           
             return info;
           }
-
-
   `}
       output={
        <></>
