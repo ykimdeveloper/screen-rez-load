@@ -5,6 +5,7 @@ import { ThemeProvider, createTheme, CssBaseline } from "@mui/material";
 import Home from "./views/Home";
 import MuiUserAgent from "./views/MuiUserAgent"
 import PlatformView from "./views/PlatformJS"
+import BrowserJSView from "./views/BrowserJS"
 import ScreenRezNav from "./components/nav"
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
         />
 
         <Route path="/screen-rez-load/platform" element={<PlatformView />} />
+        <Route path="/screen-rez-load/browser" element={<BrowserJSView />} />
         {/* <Route path="/context" element={<HomeWithContext />} />
         <Route path="/redux" element={<HomeWithRedux />} /> */}
       </Routes>
